@@ -1,7 +1,6 @@
 package com.clarity.clarity.domain;
 
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -32,4 +31,7 @@ public class Task {
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(nullable = false)
+    private boolean needsReview = false;
 }
