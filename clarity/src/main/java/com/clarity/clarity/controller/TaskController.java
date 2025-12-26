@@ -1,8 +1,7 @@
 package com.clarity.clarity.controller;
 
-import com.clarity.clarity.domain.Task;
+import com.clarity.clarity.entity.Task;
 import com.clarity.clarity.dto.ReviewRequest;
-import com.clarity.clarity.dto.TaskStatusUpdateRequest;
 import com.clarity.clarity.dto.TimeBlockRequest;
 import com.clarity.clarity.repository.TaskRepository;
 import com.clarity.clarity.service.TaskReviewService;

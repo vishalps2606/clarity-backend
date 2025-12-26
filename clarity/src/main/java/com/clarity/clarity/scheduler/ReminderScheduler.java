@@ -1,6 +1,6 @@
 package com.clarity.clarity.scheduler;
 
-import com.clarity.clarity.domain.Reminder;
+import com.clarity.clarity.entity.Reminder;
 import com.clarity.clarity.domain.ReminderStatus;
 import com.clarity.clarity.repository.ReminderRepository;
 import jakarta.transaction.Transactional;

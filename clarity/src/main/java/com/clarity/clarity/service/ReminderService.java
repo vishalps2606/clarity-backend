@@ -1,7 +1,7 @@
 package com.clarity.clarity.service;
 
-import com.clarity.clarity.domain.Reminder;
-import com.clarity.clarity.domain.Task;
+import com.clarity.clarity.entity.Reminder;
+import com.clarity.clarity.entity.Task;
 import com.clarity.clarity.dto.ReminderRequest;
 import com.clarity.clarity.repository.ReminderRepository;
 import com.clarity.clarity.repository.TaskRepository;

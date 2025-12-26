@@ -1,8 +1,9 @@
-package com.clarity.clarity.domain;
+package com.clarity.clarity.entity;
 
+import com.clarity.clarity.domain.TaskReviewDecision;
+import com.clarity.clarity.domain.TaskStatus;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDateTime;
 

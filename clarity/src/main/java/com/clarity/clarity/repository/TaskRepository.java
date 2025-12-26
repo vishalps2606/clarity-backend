@@ -1,6 +1,6 @@
 package com.clarity.clarity.repository;
 
-import com.clarity.clarity.domain.Task;
+import com.clarity.clarity.entity.Task;
 import com.clarity.clarity.domain.TaskStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

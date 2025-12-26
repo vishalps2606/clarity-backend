@@ -1,6 +1,6 @@
 package com.clarity.clarity.repository;
 
-import com.clarity.clarity.domain.TimeBlock;
+import com.clarity.clarity.entity.TimeBlock;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

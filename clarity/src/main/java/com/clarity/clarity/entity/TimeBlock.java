@@ -1,4 +1,4 @@
-package com.clarity.clarity.domain;
+package com.clarity.clarity.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -6,9 +6,9 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "reminders")
+@Table(name = "time_blocks")
 @Data
-public class Reminder {
+public class TimeBlock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,8 @@ public class Reminder {
     private Task task;
 
     @Column(nullable = false)
-    private LocalDateTime remindAt;
+    private LocalDateTime startTime;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ReminderStatus status = ReminderStatus.PENDING;
+    private LocalDateTime endTime;
 }

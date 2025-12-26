@@ -1,7 +1,7 @@
 package com.clarity.clarity.service;
 
-import com.clarity.clarity.domain.Task;
-import com.clarity.clarity.domain.TimeBlock;
+import com.clarity.clarity.entity.Task;
+import com.clarity.clarity.entity.TimeBlock;
 import com.clarity.clarity.dto.TimeBlockRequest;
 import com.clarity.clarity.repository.TaskRepository;
 import com.clarity.clarity.repository.TimeBlockRepository;

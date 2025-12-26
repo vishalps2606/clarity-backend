@@ -1,6 +1,6 @@
 package com.clarity.clarity.service;
 
-import com.clarity.clarity.domain.Task;
+import com.clarity.clarity.entity.Task;
 import com.clarity.clarity.domain.TaskStatus;
 import com.clarity.clarity.dto.ReviewRequest;
 import com.clarity.clarity.repository.TaskRepository;
@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
-import static com.clarity.clarity.domain.TaskReviewDecision.*;
 
 @Service
 @RequiredArgsConstructor

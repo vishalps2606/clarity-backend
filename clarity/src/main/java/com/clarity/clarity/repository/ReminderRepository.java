@@ -1,6 +1,6 @@
 package com.clarity.clarity.repository;
 
-import com.clarity.clarity.domain.Reminder;
+import com.clarity.clarity.entity.Reminder;
 import com.clarity.clarity.domain.ReminderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
