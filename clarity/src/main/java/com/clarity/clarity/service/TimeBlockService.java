@@ -16,7 +16,9 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class TimeBlockService {
 
-    private static final int DAILY_LIMIT_MINUTES = 8 * 60;
+    //Note: It is a time limit, that you have every day, you can give to tasks
+    //I can manage 2 hrs every day, So I have given two, can modify according to your needs
+    private static final int DAILY_LIMIT_MINUTES = 2 * 60;
 
     private final TimeBlockRepository timeBlockRepository;
     private final TaskRepository taskRepository;
