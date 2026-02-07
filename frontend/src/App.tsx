@@ -1,17 +1,43 @@
-import { Button } from "./components/Button";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
+// Protected Route Wrapper
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+  const { isAuthenticated } = useAuth();
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
+  return children;
+};
+
+function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      
+      {/* Protected Dashboard (Placeholder) */}
+      <Route path="/dashboard" element={
+        <ProtectedRoute>
+          <div className="p-10 text-neon-blue font-mono text-xl">
+             ACCESS GRANTED. WELCOME TO CLARITY.
+          </div>
+        </ProtectedRoute>
+      } />
+
+      {/* Default Redirect */}
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+    </Routes>
+  );
+}
 
 function App() {
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-center gap-4">
-      <h1 className="text-4xl font-bold font-mono text-neon-blue">CLARITY_OS</h1>
-      <p className="text-text-secondary">System Online.</p>
-      
-      <div className="flex gap-4">
-        <Button onClick={() => alert('Clicked!')}>Initialize</Button>
-        <Button variant="outline">Scan</Button>
-        <Button variant="danger">Purge</Button>
-      </div>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
