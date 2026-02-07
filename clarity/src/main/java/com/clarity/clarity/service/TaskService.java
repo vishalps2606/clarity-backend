@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -31,14 +32,17 @@ public class TaskService {
 
         Task task = new Task();
         task.setTitle(request.title());
-        task.setId(goal.getId());
+
+        task.setGoal(goal);
+
         task.setEstimatedMinutes(request.estimatedMinutes());
         task.setDueDatetime(request.dueDatetime());
         task.setStatus(TaskStatus.READY);
-        task.setUserId(userId); // Stamp User ID
+        task.setUserId(userId);
 
         Task savedTask = taskRepository.save(task);
-        activityLogService.log(savedTask.getId(), "TASK_CREATED", "USER", java.util.Collections.emptyMap());
+
+        activityLogService.log(savedTask.getId(), "TASK_CREATED", "USER", Collections.emptyMap());
 
         return savedTask;
     }
@@ -48,10 +52,8 @@ public class TaskService {
         return taskRepository.findAllByUserId(userId);
     }
 
-    // NEW SECURE METHOD
     public List<Task> getTasksNeedingReview() {
         Long userId = securityUtils.getCurrentUserId();
-        // Calls the new secure repository method
         return taskRepository.findByNeedsReviewTrueAndUserId(userId);
     }
 }

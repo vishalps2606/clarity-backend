@@ -23,42 +23,27 @@ public class TaskController {
     private final TaskReviewService taskReviewService;
     private final TimeBlockService timeBlockService;
 
-    // 1. Get All Tasks (Secure)
     @GetMapping
     public ResponseEntity<List<Task>> getAllTasks() {
         return ResponseEntity.ok(taskService.getAllTasks());
     }
 
-    // 2. Create Task (Secure)
     @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody @Valid TaskRequest request) {
         return ResponseEntity.ok(taskService.createTask(request));
     }
 
-    // 3. Get Review List (Secure - Fixed vulnerability)
     @GetMapping("/review")
     public ResponseEntity<List<Task>> getTaskNeedingReview() {
         return ResponseEntity.ok(taskService.getTasksNeedingReview());
     }
 
-    // 4. Submit Review
     @PostMapping("/{id}/review")
     public ResponseEntity<Void> reviewTask(
             @PathVariable Long id,
             @Valid @RequestBody ReviewRequest request
     ) {
-        // Note: Ensure TaskReviewService also uses `findByIdAndUserId` internally!
         taskReviewService.reviewTask(id, request);
-        return ResponseEntity.ok().build();
-    }
-
-    // 5. Add Time Block
-    @PostMapping("/{taskId}/time-blocks")
-    public ResponseEntity<Void> addTimeBlock(
-            @PathVariable Long taskId,
-            @Valid @RequestBody TimeBlockRequest request
-    ) {
-        timeBlockService.createTimeBlock(taskId, request);
         return ResponseEntity.ok().build();
     }
 }
