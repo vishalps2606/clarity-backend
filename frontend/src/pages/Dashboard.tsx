@@ -31,15 +31,15 @@ export default function Dashboard() {
     <AppLayout>
       <header className="flex justify-between items-center mb-8">
         <div>
-          <h2 className="text-3xl font-bold text-text-primary">Command Center</h2>
-          <p className="text-text-secondary">Overview of current objectives.</p>
+          <h2 className="text-3xl font-bold text-text-primary">Dashboard</h2>
+          <p className="text-text-secondary">Overview of current tasks.</p>
         </div>
         <Button 
             className="flex items-center gap-2" 
             onClick={() => setIsModalOpen(true)} // Open Modal
         >
           <Plus size={18} />
-          New Objective
+          New Task
         </Button>
       </header>
 
@@ -60,7 +60,7 @@ export default function Dashboard() {
       </div>
 
       {/* TASKS GRID */}
-      <h3 className="text-xl font-bold text-text-primary mb-4">Priority Queue</h3>
+      <h3 className="text-xl font-bold text-text-primary mb-4">My Tasks</h3>
       
       {loading ? (
         <div className="text-neon-blue font-mono animate-pulse">Scanning database...</div>
