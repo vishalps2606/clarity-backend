@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CheckSquare, Target, Clock, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, CheckSquare, Target, Clock, LogOut, Menu, X, BarChart2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { clsx } from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -19,6 +19,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
     { icon: CheckSquare, label: 'Tasks', path: '/tasks' },
     { icon: Target, label: 'Goals', path: '/goals' },
     { icon: Clock, label: 'Review', path: '/review' },
+    { icon: BarChart2, label: 'Stats', path: '/insights' },
   ];
 
   const SidebarContent = () => (

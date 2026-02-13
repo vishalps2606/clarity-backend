@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import Review from "./pages/Review";
 import FocusMode from "./pages/FocusMode";
 import Goals from "./pages/Goals";
+import Insights from "./pages/Insights";
+import Tasks from "./pages/Tasks";
 
 // Protected Route Wrapper
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
@@ -52,6 +54,24 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/insights"
+        element={
+          <ProtectedRoute>
+            <Insights />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/tasks"
+        element={
+          <ProtectedRoute>
+            <Tasks />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Default Redirect */}
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
     </Routes>
